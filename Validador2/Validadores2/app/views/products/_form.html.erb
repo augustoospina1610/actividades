@@ -46,6 +46,11 @@
     <%= f.text_field :description %>
   </div>
 
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  </div>
+
   <div class="actions">
     <%= f.submit class:"OK" %>
   </div>
