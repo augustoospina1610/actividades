@@ -1,0 +1,57 @@
+<%= form_for(product) do |f| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :marca %>
+    <%= f.text_field :marca, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :talla %>
+    <%= f.text_field :talla, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :referencia %>
+    <%= f.text_field :referencia, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+  </div>
+
+  <div class="field">
+    <%= f.label :costo %>
+    <%= f.text_field :costo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :total %>
+    <%= f.text_field :total %>
+  </div>
+
+ <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :category %>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit class:"OK" %>
+  </div>
+<% end %>
